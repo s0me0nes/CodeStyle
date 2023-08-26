@@ -9,7 +9,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform _gunBarrel;
     [SerializeField] private float _interval;
 
-    void Start()
+    private void Start()
     {
         var shoot = StartCoroutine(Shoot());
     }
