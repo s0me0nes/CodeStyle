@@ -8,13 +8,13 @@ public class PointMovement : MonoBehaviour
     private Vector3 _currentTarget;
     private int _targetIndex = 0;
 
-    void Start()
+    private void Start()
     {
         _points = GetComponentsInChildren<Transform>();
         _currentTarget = _points[_targetIndex].transform.position;
     }
 
-    public void Update()
+    private void Update()
     {
         if (_currentTarget == null) return;
 
@@ -26,7 +26,7 @@ public class PointMovement : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _currentTarget, _speed * Time.deltaTime);
     }
 
-    public Vector3 GetNextTarget()
+    private Vector3 GetNextTarget()
     {
         if (_targetIndex == _points.Length)
         {
