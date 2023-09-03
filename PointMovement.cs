@@ -35,7 +35,7 @@ public class PointMovement : MonoBehaviour
 
         _targetIndex++;
         _currentTarget = _points[_targetIndex].transform.position;
-    
+
         return _currentTarget;
     }
 }
