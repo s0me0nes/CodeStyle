@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField] private float _force;
-    [SerializeField] private GameObject _bullet;
+    [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _gunBarrel;
     [SerializeField] private float _interval;
 
@@ -16,6 +16,8 @@ public class Shooting : MonoBehaviour
 
     private IEnumerator Shoot()
     {
+        var waitSeconds = new WaitForSeconds(_interval);
+
         while (enabled)
         {
             Vector3 direction = (_gunBarrel.position - transform.position).normalized;
@@ -25,7 +27,7 @@ public class Shooting : MonoBehaviour
             rigidbody.transform.up = direction;
             rigidbody.velocity = direction * _force;
 
-            yield return new WaitForSeconds(_interval);
+            yield return waitSeconds;
         }
     }
 }
